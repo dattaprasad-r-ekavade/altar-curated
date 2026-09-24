@@ -8,7 +8,7 @@ Build a **distinctive self-healing and metaphysical world** with a curated store
 
 The homepage should establish the client's point of view and offer immediate paths to read, practise, shop, and join the community. Prototype the brief's illustrated spaces/hotspots alongside a more writing-led direction; choose after reviewing the original essays and client feedback. Keep navigation and purchase paths visible. If illustration wins, use layered 2D art, restrained motion, and static fallbacks; no 3D/WebGL dependency. Mobile needs a designed composition rather than a reduced desktop scene.
 
-**Recommended implementation baseline:** a custom Shopify Online Store theme, with Shopify products/variants, cart, checkout, orders, customer accounts, and native order reporting. Use articles and/or page-capable metaobjects for structured Greenhouse content, rituals, prompts, and the links between them. This follows the platform preference in the brief and avoids writing a second commerce back office. Confirm the external shipping/payment provider's integration requirements before locking the platform. If it cannot integrate with Shopify, make a short platform decision record before building the checkout.
+**Recommended implementation baseline:** a custom Shopify Online Store theme, with Shopify products/variants, cart, checkout, orders, customer accounts, and native order reporting. Use articles and/or page-capable metaobjects for structured writing, practices, prompts, and the links between them. This follows the platform preference in the brief and avoids writing a second commerce back office. Confirm the external shipping/payment provider's integration requirements before locking the platform. If it cannot integrate with Shopify, make a short platform decision record before building the checkout.
 
 Shopify documentation: [manual payment methods](https://help.shopify.com/en/manual/payments/manual-payments), [managing orders](https://help.shopify.com/en/manual/fulfillment/managing-orders), [metaobject theme templates](https://shopify.dev/docs/storefronts/themes/architecture/templates/metaobject), [digital downloads](https://help.shopify.com/en/manual/products/digital-service-product/digital-downloads).
 
@@ -57,7 +57,7 @@ References are for direction, not templates. The visual system should be present
 
 **Core routes:**
 
-- `/` — estate entry and editorial homepage
+- `/` — brand entry and editorial homepage
 - `/shop`, `/collections/:slug`, `/products/:slug` — commerce
 - `/reflections-in-bloom` — flagship story/product landing, with a purchase CTA connected to its actual product record
 - `/journal` (or `/greenhouse` if approved), category and article routes — editorial archive, reflections, practices/rituals, prompts
@@ -92,7 +92,7 @@ References are for direction, not templates. The visual system should be present
 ### P2 — Foundation and content system
 
 1. Initialize this repository with the selected Shopify theme project, environment/config instructions, asset workflow, and development conventions.
-2. Build design tokens, typography, header/mobile menu, buttons, cards, layouts, image treatment, and accessible illustration hotspot component.
+2. Build design tokens, typography, header/mobile menu, buttons, cards, layouts, and image treatment. Add an accessible illustration hotspot component only if the approved concept needs it.
 3. Configure five products and any real collections; define editable writing/practice/prompt content types, Substack provenance/canonical fields, and relationship fields.
 4. Create reusable page/section templates and SEO fields, breadcrumbs, metadata, sitemaps/schema where relevant.
 
@@ -110,7 +110,7 @@ References are for direction, not templates. The visual system should be present
 ### P4 — QA, launch, and handover
 
 1. Review on common mobile widths and desktop; keyboard/screen-reader basics, focus, labels, contrast, reduced motion, broken links, empty states, checkout clarity.
-2. Optimize illustrations and photography, responsive formats, lazy-loading below the fold, font loading, and Core Web Vitals; retain an accessible static estate path.
+2. Optimize approved illustration and photography, responsive formats, lazy-loading below the fold, font loading, and Core Web Vitals; retain a straightforward static navigation path.
 3. Check products/prices/stock, shipping availability and fees, taxes, COD policy, emails, legal pages, metadata, analytics, Search Console, domain, and order notifications.
 4. Run test orders covering one item, multiple items, unavailable region, cancellation, delivery, COD collection, and return/RTO. Reconcile dashboard totals to order records.
 5. Train client on product/content publishing, order status updates, COD reconciliation, exports, and the eventual provider integration handoff.
