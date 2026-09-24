@@ -55,6 +55,7 @@ export default function ShopPage() {
         ))}
       </div>
       <p className="source-note">This is a design skeleton. No product is available for purchase yet, and the future categories are placeholders.</p>
+      <div className="page-outro"><p className="eyebrow">A world within the shop</p><h2>Objects with <em>meaning.</em></h2><Link href="/apothecary" className="text-link">Explore the apothecary <span aria-hidden="true">↗</span></Link></div>
     </div>
   );
 }

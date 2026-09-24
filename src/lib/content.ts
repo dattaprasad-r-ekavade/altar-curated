@@ -47,21 +47,42 @@ export const essays: Essay[] = [
 
 export const communityPrompts = [
   {
+    slug: "on-wanting",
     number: "01",
     label: "On wanting",
     title: "What have you learned to want without apology?",
     description: "A space for desire, fear and the things we almost said aloud.",
   },
   {
+    slug: "on-the-ordinary",
     number: "02",
     label: "On the ordinary",
     title: "Where did love find you this week?",
     description: "In the small gestures: a cup of tea, cut fruit, a familiar look.",
   },
   {
+    slug: "on-becoming",
     number: "03",
     label: "On becoming",
     title: "What are you still in the middle of?",
     description: "No finished version of yourself required.",
+  },
+];
+
+export const notes = [
+  {
+    number: "01",
+    theme: "An unfinished thought",
+    text: "There is a particular kind of courage in admitting you still care.",
+  },
+  {
+    number: "02",
+    theme: "A little practice",
+    text: "Notice one ordinary thing that asked nothing of you and still made the day softer.",
+  },
+  {
+    number: "03",
+    theme: "A question to keep",
+    text: "Where do you feel most like yourself, even before you can explain why?",
   },
 ];

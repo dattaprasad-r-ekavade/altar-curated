@@ -1,6 +1,6 @@
-# Altar Curated — design skeleton
+# Altar Curated — client design prototype
 
-A single Next.js App Router project for Altar Curated’s publication, community, shop, and owner studio. This first push is a **visual, deployable prototype**. It contains no database, sign-in, live discussion, checkout, or real orders.
+A single Next.js App Router project for Altar Curated’s publication, community, shop, and owner studio. This is a **visual, deployable prototype**. It contains no database, sign-in, live discussion, active checkout, or real orders. Most pages are prerendered Server Components; only the small local search interface needs client JavaScript. Page entry and hover transitions use CSS and respect reduced-motion preferences.
 
 ## Run locally
 
@@ -18,21 +18,23 @@ Open [http://localhost:3000](http://localhost:3000). Run `npm run typecheck` and
 3. No environment variables are required for this design preview.
 4. Use a plan that permits commercial client work. Vercel Hobby is limited to non-commercial personal use.
 
-The pages should render immediately after import. The current `/admin` is **public sample UI with no data or actions**. Do not put customer information or editable controls there until authentication, server-side authorization, and storage policies are implemented. The cart and journal purchase action are explicitly inactive.
+The pages should render immediately after import. The current `/admin` is **public sample UI with no data or actions**. Do not put customer information or editable controls there until authentication, server-side authorization, and storage policies are implemented. Checkout, member access, and contact forms are visibly disabled. No personal information should be entered into the preview.
 
 ## Pages
 
 | Route | Current state |
 | --- | --- |
 | `/` | Editorial homepage |
-| `/read`, `/read/[slug]` | Archive and article layout previews |
-| `/community` | Community landing and prompt previews |
-| `/shop`, `/shop/reflections-in-bloom` | Minimal shop and flagship product story |
-| `/cart` | Inactive cart preview |
-| `/about` | About layout |
-| `/admin` | Public owner dashboard **design preview only** |
+| `/read`, `/read/[slug]`, `/notes`, `/search` | Archive, article, short note and local search layouts |
+| `/community`, `/community/[slug]` | Gathering and individual discussion previews |
+| `/shop`, `/shop/reflections-in-bloom`, `/apothecary` | Minimal shop, journal story and curation concept |
+| `/cart`, `/checkout`, `/order/preview` | Cart, COD checkout and example order journey; no transaction |
+| `/account`, `/account/orders` | Member entrance and example order history |
+| `/about`, `/contact` | Story and contact preview |
+| `/shipping`, `/returns`, `/privacy`, `/terms` | Clearly marked policy placeholders for client review |
+| `/admin` and `/admin/{posts,community,products,orders,settings}` | Public owner studio **design preview only** |
 
-Essay descriptions, community prompts, product art, and marketing copy are temporary design content drawn from the project brief and supplied blog summary. Complete essays, client photography, approved copy, prices, policies, and product data are not in this repo. The source PDF is in [docs](docs/ALTAR%20CURATED%20WEBSITE%20BRIEF.pdf); the staged implementation scope is in [ACTION_PLAN.md](ACTION_PLAN.md).
+Essay descriptions, community prompts, product art, and marketing copy are temporary design content drawn from the project brief and supplied blog summary. Complete essays, client photography, approved copy, prices, policies, and product data are not in this repo. Search filters sample content in the browser. Example orders and dashboard rows are static, and disabled fields do not save. The source PDF is in [docs](docs/ALTAR%20CURATED%20WEBSITE%20BRIEF.pdf); the staged implementation scope is in [ACTION_PLAN.md](ACTION_PLAN.md).
 
 ## Next build steps
 

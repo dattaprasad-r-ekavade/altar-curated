@@ -25,12 +25,12 @@ export default function CommunityPage() {
       </div>
       <div className="prompt-grid">
         {communityPrompts.map((prompt) => (
-          <div className="prompt-card" key={prompt.number}>
+          <Link href={`/community/${prompt.slug}`} className="prompt-card" key={prompt.number}>
             <div className="prompt-top"><span>{prompt.label}</span><span>{prompt.number}</span></div>
             <h3>{prompt.title}</h3>
             <p>{prompt.description}</p>
-            <span className="prompt-status">Conversation opens soon ↗</span>
-          </div>
+            <span className="prompt-status">Explore the conversation ↗</span>
+          </Link>
         ))}
       </div>
       <div className="community-bottom">

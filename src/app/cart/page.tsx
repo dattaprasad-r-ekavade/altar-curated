@@ -17,6 +17,7 @@ export default function CartPage() {
         <p>Come back when the first offering is ready.</p>
         <Link href="/shop" className="button button-light">Explore the shop <span aria-hidden="true">↗</span></Link>
       </div>
+      <div className="cart-preview-link"><p>See how the future cash-on-delivery journey will look.</p><Link href="/checkout" className="text-link">Preview checkout <span aria-hidden="true">↗</span></Link></div>
     </div>
   );
 }

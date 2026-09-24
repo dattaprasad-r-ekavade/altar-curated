@@ -26,9 +26,18 @@ export function SiteFooter() {
         <Link className="footer-wordmark" href="/">ALTAR CURATED</Link>
         <div className="footer-links">
           <Link href="/read">Archive</Link>
+          <Link href="/notes">Notes</Link>
+          <Link href="/search">Search</Link>
           <Link href="/community">Community</Link>
           <Link href="/shop">Shop</Link>
+          <Link href="/apothecary">Apothecary</Link>
+          <Link href="/account">My Altar</Link>
           <Link href="/about">About</Link>
+          <Link href="/contact">Contact</Link>
+          <Link href="/shipping">Shipping</Link>
+          <Link href="/returns">Returns</Link>
+          <Link href="/privacy">Privacy</Link>
+          <Link href="/terms">Terms</Link>
           <Link href="/admin">Studio preview</Link>
         </div>
         <p>© {new Date().getFullYear()} Altar Curated · Design preview</p>
