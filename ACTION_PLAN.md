@@ -1,6 +1,6 @@
 # Altar Curated — V1 website action plan
 
-Sources: client’s **ALTAR CURATED Website Design + Development Brief** (25-page PDF, 26 numbered sections), supplied 24 September 2026; the project owner's clarification that Altar is a **self-healing and metaphysical store and community**; and the user-provided content, themes, visual notes, and post summaries from Mehak Joshi’s [Altar Curated / Speck of Rot Substack](https://speckofrot.substack.com/). The supplied blog summary is the editorial source for this revision; the posts themselves could not be inspected through the available browser. V1 prioritizes design, COD checkout, and sales upkeep. The shipping/payment provider remains unspecified.
+Sources: client’s [**ALTAR CURATED Website Design + Development Brief**](docs/ALTAR%20CURATED%20WEBSITE%20BRIEF.pdf) (25-page PDF, 26 numbered sections), supplied 24 September 2026; the project owner's clarification that Altar is a **self-healing and metaphysical store and community**; and the user-provided content, themes, visual notes, and post summaries from Mehak Joshi’s [Altar Curated / Speck of Rot Substack](https://speckofrot.substack.com/). The supplied blog summary is the editorial source for this revision; the posts themselves could not be inspected through the available browser. V1 prioritizes design, COD checkout, and sales upkeep. The shipping/payment provider remains unspecified.
 
 ## 1. Product decision
 
