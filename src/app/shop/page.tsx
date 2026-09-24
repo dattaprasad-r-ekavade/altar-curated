@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 const futureCategories = [
   { number: "02", name: "Ritual objects", note: "An intentional collection, still being chosen." },
   { number: "03", name: "Decks & cards", note: "Small invitations to pause and ask." },
-  { number: "04", name: "The Apothecary", note: "Objects with stories and ways to use them." },
+  { number: "04", name: "Digital products", note: "Guides and prompts, still being chosen." },
 ];
 
 export default function ShopPage() {
@@ -54,7 +54,7 @@ export default function ShopPage() {
           </div>
         ))}
       </div>
-      <p className="source-note">This is a design skeleton. No product is available for purchase yet, and the future categories are placeholders.</p>
+      <p className="source-note">This is a design preview. No product is available for purchase yet, and the future categories are placeholders.</p>
       <div className="page-outro"><p className="eyebrow">A world within the shop</p><h2>Objects with <em>meaning.</em></h2><Link href="/apothecary" className="text-link">Explore the apothecary <span aria-hidden="true">↗</span></Link></div>
     </div>
   );

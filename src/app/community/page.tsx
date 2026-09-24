@@ -3,7 +3,7 @@ import Link from "next/link";
 import { communityPrompts } from "@/lib/content";
 
 export const metadata: Metadata = {
-  title: "Community",
+  title: "The Gathering",
   description: "A place for reflection, questions and company.",
 };
 
@@ -11,7 +11,7 @@ export default function CommunityPage() {
   return (
     <div className="page-shell interior-page community-page">
       <div className="page-intro community-intro">
-        <p className="eyebrow">A gathering / Not a performance</p>
+        <p className="eyebrow">The Greenhouse / The Gathering</p>
         <h1>We make room <em>for each other.</em></h1>
         <p>A space for the questions we live with, the things we are learning, and the comfort of not being the only one.</p>
       </div>

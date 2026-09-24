@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Studio Preview",
+  title: "Owner Desk Preview",
   robots: { index: false, follow: false },
 };
 
@@ -18,7 +18,7 @@ export default function AdminPreviewPage() {
     <div className="admin-preview interior-page">
       <div className="admin-heading">
         <div>
-          <p className="eyebrow">Altar studio / Owner view</p>
+          <p className="eyebrow">Owner desk / Site upkeep</p>
           <h1>A room for <em>keeping things.</em></h1>
           <p>One quiet place to manage the publication, community and shop when the backend is added.</p>
         </div>

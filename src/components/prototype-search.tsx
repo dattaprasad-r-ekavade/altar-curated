@@ -5,6 +5,8 @@ import Link from "next/link";
 import { essays, communityPrompts } from "@/lib/content";
 
 const items = [
+  { title: "The Greenhouse", summary: "Writing, ritual and discovery.", kind: "Space", href: "/greenhouse" },
+  { title: "The Studio", summary: "The making of Altar Curated.", kind: "Space", href: "/studio" },
   ...essays.map((essay) => ({ title: essay.title, summary: essay.summary, kind: "Writing", href: `/read/${essay.slug}` })),
   ...communityPrompts.map((prompt) => ({ title: prompt.title, summary: prompt.description, kind: "Community", href: `/community/${prompt.slug}` })),
   { title: "Reflections in Bloom", summary: "The first Altar Curated journal.", kind: "Shop", href: "/shop/reflections-in-bloom" },

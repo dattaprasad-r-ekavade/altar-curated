@@ -1,110 +1,65 @@
 import Link from "next/link";
-import { EssayCard } from "@/components/essay-card";
 import { essays } from "@/lib/content";
+
+const rooms = [
+  { number: "01", title: "The Shop", text: "Objects chosen with intention.", href: "/shop" },
+  { number: "02", title: "The Greenhouse", text: "Ideas, rituals, and a place to gather.", href: "/greenhouse" },
+  { number: "03", title: "The Apothecary", text: "Objects, their stories, and their uses.", href: "/apothecary" },
+  { number: "04", title: "The Library", text: "Writing for the feeling heart.", href: "/read" },
+];
 
 export default function HomePage() {
   return (
     <>
-      <section className="hero page-shell">
-        <div className="hero-copy">
-          <p className="eyebrow"><span className="small-star">✦</span> The heart that keeps on breaking</p>
-          <h1>To feel deeply is <em>to be alive.</em></h1>
-          <p className="hero-description">
-            A place for devotion, longing, change and the quiet art of beginning again.
-            Come as you are. Stay a while.
-          </p>
-          <div className="hero-actions">
-            <Link className="button button-light" href="/read">
-              Enter the writing <span aria-hidden="true">↗</span>
-            </Link>
-            <Link className="underlined-link" href="/about">Meet Altar Curated</Link>
-          </div>
-          <p className="hero-footnote">writing · reflection · ritual · community</p>
-        </div>
-        <div className="hero-art" aria-label="Abstract oval altar illustration">
-          <div className="art-caption art-caption-top">an offering to the unfinished self</div>
-          <div className="art-arch">
-            <div className="art-arch-inner">
-              <div className="art-halo" />
-              <div className="art-heart">♡</div>
-              <p>the heart<br />is an altar</p>
-            </div>
-          </div>
-          <div className="art-caption art-caption-bottom">est. in the act of becoming <span>✧</span></div>
+      <section className="minimal-hero page-shell">
+        <div className="minimal-seal" aria-hidden="true"><span>A</span><span>C</span></div>
+        <p className="minimal-kicker">Altar Curated · a world by Mehak Joshi</p>
+        <h1>The heart that keeps <em>on breaking.</em></h1>
+        <p className="minimal-hero-copy">An alchemical revision of the heart. A home for writing, reflection, ritual and objects with meaning.</p>
+        <Link className="minimal-pill" href="#explore">Explore Altar <span aria-hidden="true">↗</span></Link>
+        <span className="minimal-hero-bottom">A place to feel everything.</span>
+      </section>
+
+      <section id="explore" className="minimal-section page-shell">
+        <div className="minimal-section-heading"><span>01 / Explore the world</span><p>There is room for every way of arriving.</p></div>
+        <div className="minimal-room-list">
+          {rooms.map((room) => <Link className="minimal-room" href={room.href} key={room.number}>
+            <span>{room.number}</span><div><h2>{room.title}</h2><p>{room.text}</p></div><b aria-hidden="true">↗</b>
+          </Link>)}
         </div>
       </section>
 
-      <div className="marquee-line" aria-hidden="true">
-        <span>DEVOTION</span><i>✦</i><span>DESIRE</span><i>✦</i><span>THE ORDINARY DIVINE</span><i>✦</i><span>BECOMING</span>
-      </div>
-
-      <section className="section page-shell writing-section">
-        <div className="section-heading">
-          <div>
-            <p className="eyebrow">01 / From the archive</p>
-            <h2>For all that <em>moves through us.</em></h2>
+      <section className="minimal-feature">
+        <div className="page-shell minimal-feature-inner">
+          <div className="minimal-book" aria-label="Typographic preview of the Reflections in Bloom journal">
+            <span>ALTAR CURATED</span><strong>Reflections<br /><em>in Bloom</em></strong><small>a journal for becoming</small>
           </div>
-          <Link className="text-link" href="/read">View the archive <span aria-hidden="true">↗</span></Link>
-        </div>
-        <div className="featured-essays">
-          <EssayCard essay={essays[0]} large />
-          <div className="essay-stack">
-            <EssayCard essay={essays[1]} />
-            <EssayCard essay={essays[2]} />
-          </div>
-        </div>
-        <p className="source-note">Editorial previews based on the client brief. Full essays will appear here after Mehak approves the selections and text.</p>
-      </section>
-
-      <section className="manifesto-section">
-        <div className="page-shell manifesto-grid">
-          <div className="manifesto-seal" aria-hidden="true"><span>✦</span><span>A C</span><span>✦</span></div>
-          <div>
-            <p className="eyebrow">A small declaration</p>
-            <h2>There is nothing wrong with <em>wanting more</em> from being alive.</h2>
-            <p>
-              Altar Curated makes room for the tender, difficult, unpolished parts of becoming.
-              Through writing, shared reflection and objects chosen with intention.
-            </p>
-            <Link className="text-link" href="/about">The story behind Altar <span aria-hidden="true">↗</span></Link>
+          <div className="minimal-feature-copy">
+            <p className="minimal-kicker">02 / The Conservatory</p>
+            <h2>Reflections <em>in Bloom</em></h2>
+            <p>The first offering. A journal imagined as a meeting place with the self, and a beginning for the world around it.</p>
+            <Link className="minimal-underline" href="/shop/reflections-in-bloom">Meet the journal <span aria-hidden="true">↗</span></Link>
           </div>
         </div>
       </section>
 
-      <section className="section page-shell two-worlds">
-        <div className="world-panel community-panel">
-          <p className="eyebrow">02 / In good company</p>
-          <div className="world-art world-art-community" aria-hidden="true"><span>◌</span><span>✶</span></div>
-          <h2>The slog is better <em>together.</em></h2>
-          <p>A gathering place for questions, small discoveries and honest conversations.</p>
-          <Link className="button button-outline" href="/community">Enter the community <span aria-hidden="true">↗</span></Link>
+      <section className="minimal-section page-shell minimal-writing">
+        <div className="minimal-section-heading"><span>03 / The Library</span><p>Some things ask to be read slowly.</p></div>
+        <h2>Words to <em>return to.</em></h2>
+        <div className="minimal-room-list">
+          {essays.slice(0, 3).map((essay) => <Link className="minimal-room minimal-essay" href={`/read/${essay.slug}`} key={essay.slug}>
+            <span>{essay.motif}</span><div><h3>{essay.title}</h3><p>{essay.summary}</p></div><b aria-hidden="true">↗</b>
+          </Link>)}
         </div>
-        <div className="world-panel shop-panel">
-          <p className="eyebrow">03 / Objects with intention</p>
-          <div className="world-art world-art-shop" aria-hidden="true"><div className="mini-book">R<br />B</div></div>
-          <h2>Objects to live <em>alongside.</em></h2>
-          <p>A quiet collection for reflection, ritual and the everyday sacred.</p>
-          <Link className="button button-dark" href="/shop">Explore the shop <span aria-hidden="true">↗</span></Link>
-        </div>
+        <Link className="minimal-underline" href="/read">Enter the Library <span aria-hidden="true">↗</span></Link>
       </section>
 
-      <section className="section page-shell journal-feature">
-        <div className="journal-visual" aria-hidden="true">
-          <div className="journal-cover">
-            <span>ALTAR CURATED</span>
-            <strong>Reflections<br /><em>in Bloom</em></strong>
-            <small>a journal for becoming</small>
-          </div>
-          <span className="journal-side-note">a place to meet yourself on the page</span>
-        </div>
-        <div className="journal-copy">
-          <p className="eyebrow">The first offering / Reflections in Bloom</p>
-          <h2>What if the page could <em>hold it all?</em></h2>
-          <p>
-            A dedicated home for Altar Curated’s launch journal. The final story, spreads,
-            details and ordering information will be added with the client’s approved assets.
-          </p>
-          <Link className="text-link" href="/shop/reflections-in-bloom">Meet the journal <span aria-hidden="true">↗</span></Link>
+      <section className="minimal-invitation">
+        <div className="page-shell">
+          <p className="minimal-kicker">04 / The Greenhouse</p>
+          <h2>The slog is better <em>with company.</em></h2>
+          <p>Questions to live with. A place to read, reflect and eventually speak back.</p>
+          <Link className="minimal-pill" href="/greenhouse">Enter the Greenhouse <span aria-hidden="true">↗</span></Link>
         </div>
       </section>
     </>

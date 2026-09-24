@@ -2,19 +2,19 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notes } from "@/lib/content";
 
-export const metadata: Metadata = { title: "Notes", description: "Small thoughts from the Altar Curated world." };
+export const metadata: Metadata = { title: "Journal Notes", description: "Small thoughts from the Altar Curated world." };
 
 export default function NotesPage() {
   return (
     <div className="page-shell interior-page notes-page">
       <div className="page-intro">
-        <p className="eyebrow">Notes / Things before they become essays</p>
+        <p className="eyebrow">The Journal / Things before they become essays</p>
         <h1>A few things <em>left open.</em></h1>
         <p>Small observations, questions and fragments. A quieter shelf beside the longer writing.</p>
       </div>
       <div className="editorial-tabs" aria-label="Publication sections">
-        <Link href="/read">Essays</Link>
-        <span aria-current="page">Notes</span>
+        <Link href="/read">The Library</Link>
+        <span aria-current="page">Journal notes</span>
         <Link href="/about">About the publication</Link>
       </div>
       <div className="notes-grid">

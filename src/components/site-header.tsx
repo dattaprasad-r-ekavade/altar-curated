@@ -1,25 +1,20 @@
 import Link from "next/link";
 
 const links = [
-  { href: "/read", label: "Read" },
-  { href: "/notes", label: "Notes" },
-  { href: "/community", label: "Community" },
   { href: "/shop", label: "Shop" },
+  { href: "/greenhouse", label: "Greenhouse" },
+  { href: "/apothecary", label: "Apothecary" },
   { href: "/about", label: "About" },
 ];
 
 export function SiteHeader() {
   return (
     <header className="site-header">
-      <div className="top-note">
-        <span>an alchemical revision of the heart</span>
-        <span className="top-note-right">a world by Mehak Joshi</span>
-      </div>
       <div className="header-inner">
         <Link className="wordmark" href="/" aria-label="Altar Curated home">
           Altar <em>Curated</em>
         </Link>
-        <nav className="main-nav" aria-label="Main navigation">
+        <nav className="main-nav" aria-label="Explore Altar">
           {links.map((link) => (
             <Link href={link.href} key={link.href}>
               {link.label}
@@ -40,6 +35,8 @@ export function SiteHeader() {
             {link.label}
           </Link>
         ))}
+        <Link href="/read">Library</Link>
+        <Link href="/community">Gathering</Link>
         <Link href="/search">Search</Link>
         <Link href="/account">My Altar</Link>
       </nav>
