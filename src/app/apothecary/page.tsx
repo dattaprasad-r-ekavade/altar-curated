@@ -17,8 +17,8 @@ const steps = [
 
 export default function ApothecaryPage() {
   return (
-    <div className="shell page">
-      <PageIntro kicker="The Apothecary · Where you ritualise" title="A practice" em="you can hold." lede="Not a shelf of things. Each object arrives with its story and a small ritual, so you know how and why it fits your practice." />
+    <div className="shell page leaf-sheet">
+      <PageIntro kicker="The Apothecary · Where you ritualise" title="A practice" em="you can hold." lede="Not a shelf of things. Each object arrives with its story and a small ritual, so you know how and why it fits your practice." note="kept beside the page you are on" />
 
       <div className="columns columns-3">
         {steps.map((step, index) => (

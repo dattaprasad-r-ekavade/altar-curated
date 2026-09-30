@@ -8,8 +8,8 @@ export const metadata: Metadata = { title: "The Journal", description: "Reflecti
 
 export default function JournalPage() {
   return (
-    <div className="shell page">
-      <PageIntro kicker="The Journal · Where you stay connected" title="A few things" em="left open." lede="Reflections, small rituals and journal prompts. A quieter shelf beside the Library." />
+    <div className="shell page leaf-sheet">
+      <PageIntro kicker="The Journal · Where you stay connected" title="A few things" em="left open." lede="Reflections, small rituals and journal prompts. A quieter shelf beside the Library." note="write in the margins, if you need to" />
       <div className="leaf-row-notes">
         <LeafRow
           label="Journal notes"

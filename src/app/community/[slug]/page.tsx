@@ -21,7 +21,7 @@ export default async function ThreadPage({ params }: { params: Promise<{ slug: s
   if (!prompt) notFound();
 
   return (
-    <div className="shell page">
+    <div className="shell page leaf-sheet">
       <Link href="/community" className="back">← Community</Link>
       <header className="article-head">
         <p className="kicker">{prompt.label} · A journal prompt</p>

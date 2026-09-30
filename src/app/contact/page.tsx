@@ -6,7 +6,7 @@ export const metadata: Metadata = { title: "Contact" };
 
 export default function ContactPage() {
   return (
-    <div className="shell page">
+    <div className="shell page leaf-sheet">
       <PageIntro kicker="Contact" title="Leave a little" em="light on." lede="For questions about the writing, the community or an order." />
       <div className="split split-top">
         <div className="stack-sm">

@@ -6,8 +6,8 @@ export const metadata: Metadata = { title: "The Studio", description: "Creative 
 
 export default function StudioPage() {
   return (
-    <div className="shell page">
-      <PageIntro kicker="The Studio · Where the making happens" title="A little room" em="for process." lede="Creative practice, videos and behind-the-scenes notes, as they find their shape." />
+    <div className="shell page leaf-sheet">
+      <PageIntro kicker="The Studio · Where the making happens" title="A little room" em="for process." lede="Creative practice, videos and behind-the-scenes notes, as they find their shape." note="sketches, still smudged" />
       <IndexList items={[
         { mark: "I", title: "Behind the journal", text: "How Reflections in Bloom came to be.", aside: "Soon" },
         { mark: "II", title: "Films", text: "Process videos and conversations.", aside: "Soon" },

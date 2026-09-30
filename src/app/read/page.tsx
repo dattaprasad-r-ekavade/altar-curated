@@ -10,9 +10,9 @@ export const metadata: Metadata = {
 
 export default function LibraryPage() {
   return (
-    <div className="shell page">
-      <PageIntro kicker="The Library · Writing, essays, archive" title="Words for the" em="feeling heart." lede="Essays and rituals from the unfinished work of being alive." />
-      <p className="hand date-line leaf-kicker">pages kept, in no particular order</p>
+    <div className="shell page leaf-sheet">
+      <PageIntro kicker="The Library · Writing, essays, archive" title="Words for the" em="feeling heart." lede="Essays and rituals from the unfinished work of being alive." note="pages kept, in no particular order" />
+      <p className="kicker leaf-kicker">From the shelves</p>
       <LeafRow
         label="Library"
         items={essays.map((essay) => ({

@@ -20,8 +20,8 @@ const pathways = [
 
 export default function GreenhousePage() {
   return (
-    <div className="shell page">
-      <PageIntro kicker="The Greenhouse · Discover" title="An ever-growing" em="digital garden." lede="Writing, rituals, seasonal living and company. Read, reflect, and wander somewhere new.">
+    <div className="shell page leaf-sheet">
+      <PageIntro kicker="The Greenhouse · Discover" title="An ever-growing" em="digital garden." lede="Writing, rituals, seasonal living and company. Read, reflect, and wander somewhere new." note="a garden, pressed between pages">
         <ul className="shelves" aria-label="Greenhouse shelves">
           {greenhouseShelves.map((shelf) => <li key={shelf}>{shelf}</li>)}
         </ul>

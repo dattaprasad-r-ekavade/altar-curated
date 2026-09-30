@@ -28,7 +28,7 @@ const details = [
 export default function ReflectionsInBloomPage() {
   return (
     <>
-      <section className="shell page split split-top">
+      <section className="shell page leaf-sheet split split-top">
         <div className="lavender cover-stage"><JournalCover size="lg" /></div>
         <div className="stack">
           <Link className="back" href="/shop">← The Shop</Link>

@@ -12,8 +12,8 @@ export const metadata: Metadata = {
 
 export default function ShopPage() {
   return (
-    <div className="shell page">
-      <PageIntro kicker="The Shop · Where you gather" title="Objects with" em="a little soul." lede="A small launch collection of five, each one connected to a ritual, a page or a practice." />
+    <div className="shell page leaf-sheet">
+      <PageIntro kicker="The Shop · Where you gather" title="Objects with" em="a little soul." lede="A small launch collection of five, each one connected to a ritual, a page or a practice." note="gathered, not collected" />
 
       <section className="split" aria-labelledby="first-offering">
         <Link href="/shop/reflections-in-bloom" className="lavender cover-stage" aria-label="Reflections in Bloom">

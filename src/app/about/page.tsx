@@ -17,8 +17,8 @@ const lines = [
 export default function AboutPage() {
   return (
     <>
-      <div className="shell page">
-        <PageIntro kicker="The Altar · About" title="The self as" em="an altar." lede="A home for Mehak Joshi's writing, a gathering for the feeling heart, and a small collection of objects chosen with intention." />
+      <div className="shell page leaf-sheet">
+        <PageIntro kicker="The Altar · About" title="The self as" em="an altar." lede="A home for Mehak Joshi's writing, a gathering for the feeling heart, and a small collection of objects chosen with intention." note="written in the margin of a life" />
         <div className="split split-top">
           <figure className="plate plate-brown">
             <Sprig />

@@ -3,12 +3,14 @@ export function PageIntro({
   title,
   em,
   lede,
+  note,
   children,
 }: {
   kicker: string;
   title: string;
   em?: string;
   lede?: string;
+  note?: string;
   children?: React.ReactNode;
 }) {
   return (
@@ -19,6 +21,7 @@ export function PageIntro({
         {em && <> <em>{em}</em></>}
       </h1>
       {lede && <p className="lede">{lede}</p>}
+      {note && <p className="hand date-line">{note}</p>}
       {children}
     </header>
   );

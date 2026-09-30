@@ -10,8 +10,8 @@ export const metadata: Metadata = {
 
 export default function CommunityPage() {
   return (
-    <div className="shell page">
-      <PageIntro kicker="The Greenhouse · Community" title="The slog is better" em="with company." lede="Journal prompts to live with, and a place to answer them alongside others." />
+    <div className="shell page leaf-sheet">
+      <PageIntro kicker="The Greenhouse · Community" title="The slog is better" em="with company." lede="Journal prompts to live with, and a place to answer them alongside others." note="a question, left on the page" />
       <div className="leaf-row-notes">
         <LeafRow
           label="Journal prompts"
