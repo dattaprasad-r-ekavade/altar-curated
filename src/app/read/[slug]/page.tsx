@@ -22,8 +22,9 @@ export default async function EssayPage({ params }: { params: Promise<{ slug: st
   const next = essays[(essays.indexOf(essay) + 1) % essays.length];
 
   return (
-    <article className="shell page">
+    <article className="shell page journal-entry">
       <Link href={essay.ritual ? "/greenhouse" : "/read"} className="back">← {essay.ritual ? "The Greenhouse" : "The Library"}</Link>
+      <p className="hand date-line">an entry, kept in {essay.ritual ? "the Greenhouse" : "the Library"}</p>
       <header className="article-head">
         <p className="kicker">{essay.eyebrow} · by Mehak Joshi</p>
         <h1>{essay.title}</h1>
@@ -31,7 +32,7 @@ export default async function EssayPage({ params }: { params: Promise<{ slug: st
         <Sprig />
       </header>
 
-      <div className="prose">
+      <div className="prose margin-rule">
         <p className="dropcap">A place for the complete {essay.ritual ? "ritual" : "essay"} is being prepared. The opening, images and full text will be added once Mehak approves what should live on Altar Curated and what should remain on Substack.</p>
         <p>This preview shows the reading rhythm: space for a long thought, an intimate margin, and a pause between one feeling and the next.</p>
         <blockquote>the heart that keeps on breaking…</blockquote>

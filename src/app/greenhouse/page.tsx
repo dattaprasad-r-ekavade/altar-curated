@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { IndexList } from "@/components/index-list";
+import { LeafRow } from "@/components/leaf-row";
 import { Sprig } from "@/components/marks";
 import { PageIntro } from "@/components/page-intro";
 import { featuredRitual, greenhouseShelves } from "@/lib/content";
@@ -27,7 +27,8 @@ export default function GreenhousePage() {
         </ul>
       </PageIntro>
 
-      <IndexList items={pathways} />
+      <p className="kicker leaf-kicker">Turn through the shelves</p>
+      <LeafRow label="Greenhouse shelves" items={pathways} />
 
       <section className="section split reveal" aria-labelledby="in-season">
         <figure className="plate plate-sage">

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { IndexList } from "@/components/index-list";
 import { JournalCover } from "@/components/journal-cover";
+import { LeafRow } from "@/components/leaf-row";
 import { PageIntro } from "@/components/page-intro";
 import { shopCategories } from "@/lib/content";
 
@@ -36,13 +36,14 @@ export default function ShopPage() {
           </div>
           <p className="marginalia">Five pieces at launch. More as the estate grows.</p>
         </div>
-        <IndexList
+        <LeafRow
+          label="The collection"
           items={shopCategories.map((category, index) => ({
             mark: ["I", "II", "III", "IV", "V"][index],
             title: category.name,
             text: category.note,
             href: index === 0 ? "/shop/reflections-in-bloom" : index === 3 ? "/apothecary" : undefined,
-            aside: index === 0 || index === 3 ? undefined : "Soon",
+            aside: index === 0 || index === 3 ? "Open" : "Soon",
           }))}
         />
       </section>

@@ -35,6 +35,7 @@ export default function ReflectionsInBloomPage() {
           <p className="kicker">The Conservatory · Journals</p>
           <h1 className="display">Reflections <em>in Bloom</em></h1>
           <p className="lede">A place to return to yourself, one page at a time.</p>
+          <p className="hand hand-note">begin on any page.</p>
           <dl className="facts">
             {details.map(([term, value]) => <div key={term}><dt>{term}</dt><dd>{value}</dd></div>)}
           </dl>

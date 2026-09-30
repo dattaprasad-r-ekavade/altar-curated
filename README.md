@@ -13,6 +13,8 @@ The interface follows the client brief (§10–16) and is kept deliberately mini
 
 The vocabulary comes from the brief. Primary navigation is Shop, Greenhouse, Apothecary and About, with Search, My Altar and Cart as utilities. The homepage follows the brief's flow: Opening / Estate, Enter Altar, then Explore the World as an estate plan of rooms (The Greenhouse, Library, Conservatory, Journal, Apothecary, Studio, Observatory and Shop around The Altar). After that come Reflections in Bloom, a Greenhouse ritual, the Apothecary shelves (Shop → Learn → Ritual), the Library, a journal prompt and the Journal signup. *Creating a Grounding Evening Ritual* demonstrates the brief's article → objects → journal prompt → Apothecary journey.
 
+The homepage is a horizontal **journal**: eight full-viewport openings you turn with scroll, trackpad, arrow keys or the Back/Turn controls. Interior discovery pages (Greenhouse, Library, Journal, Community, Shop) keep the same rooms and copy, presented as paper leaves you can slide through.
+
 All styles live in `src/app/globals.css`.
 
 ## Run locally
