@@ -1,8 +1,19 @@
 # Altar Curated — client design prototype
 
-A single Next.js App Router project for Altar Curated’s publication, community, shop, and owner desk. This is a **visual, deployable prototype**. It contains no database, sign-in, live discussion, active checkout, or real orders. Most pages are prerendered Server Components; only the small local search interface needs client JavaScript. Page entry and hover transitions use CSS and respect reduced-motion preferences.
+A single Next.js App Router project for Altar Curated’s publication, community, shop, and owner desk. This is a **visual, deployable prototype**. It contains no database, sign-in, live discussion, active checkout, or real orders. Most pages are prerendered Server Components; only the local search and the header (active-room indicator and mobile menu) need client JavaScript. Page entry and hover transitions use CSS and respect reduced-motion preferences.
 
-The visual direction combines the existing Substack oxblood, rose and paper palette with the quiet spacing and restrained entry experience of the client's Saka Essentials reference. Main navigation follows the brief's language: Shop, The Greenhouse, The Apothecary, About, with Search, My Altar and Cart as utilities. The Greenhouse leads to The Library, Journal notes, The Gathering and The Studio; Reflections in Bloom sits in The Conservatory on the homepage. The public Studio is for creative process; the owner desk is a separate sample dashboard.
+## Design direction
+
+The interface follows the client brief (§10–16) and is kept deliberately minimal: few elements per screen, generous space, thin rules and type doing most of the work.
+
+- **Colour** uses the brief's palette in its stated balance: Warm Paper `#F4EBDD` as the ground, Altar Brown `#3B241C` for navigation, footer and the opening threshold, Mystic Lavender `#B9A6D8` for Reflections in Bloom and digital moments, Soft Sage `#A8B29A` for secondary plates, Ink `#191513` for type, and Botanical Lime `#B7D83D` only for CTAs, hover states and navigation indicators.
+- **Type**: Cormorant Garamond for world, story and emotion; DM Sans for navigation, information and commerce (loaded with `next/font`).
+- **Illustration**: a small set of botanical line marks (an altar arch and sprig) in `src/components/marks.tsx`. Tinted "plates" stand in for photography until the client supplies it. No stars, moons or celestial motifs.
+- **Motion**: page arrival, scroll reveals (where `animation-timeline` is supported), a slow sway on the sprig and hover details. All of it is disabled under reduced-motion preferences.
+
+The vocabulary comes from the brief. Primary navigation is Shop, Greenhouse, Apothecary and About, with Search, My Altar and Cart as utilities. The homepage follows the brief's flow: Opening / Estate, Enter Altar, then Explore the World as an estate plan of rooms (The Greenhouse, Library, Conservatory, Journal, Apothecary, Studio, Observatory and Shop around The Altar). After that come Reflections in Bloom, a Greenhouse ritual, the Apothecary shelves (Shop → Learn → Ritual), the Library, a journal prompt and the Journal signup. *Creating a Grounding Evening Ritual* demonstrates the brief's article → objects → journal prompt → Apothecary journey.
+
+All styles live in `src/app/globals.css`.
 
 ## Run locally
 
@@ -27,9 +38,9 @@ The pages should render immediately after import. The current `/admin` is **publ
 | Route | Current state |
 | --- | --- |
 | `/` | Editorial homepage |
-| `/greenhouse`, `/read`, `/read/[slug]`, `/notes`, `/search` | Discovery, Library, article, Journal note and local search layouts |
-| `/community`, `/community/[slug]` | The Gathering and individual discussion previews |
-| `/studio` | Public creative process room |
+| `/greenhouse`, `/read`, `/read/[slug]`, `/notes`, `/search` | The Greenhouse, The Library, article/ritual, The Journal and local search |
+| `/community`, `/community/[slug]` | Community journal prompts and discussion previews |
+| `/studio`, `/observatory` | The Studio (creative process) and The Observatory (future explorations) |
 | `/shop`, `/shop/reflections-in-bloom`, `/apothecary` | Minimal shop, journal story and curation concept |
 | `/cart`, `/checkout`, `/order/preview` | Cart, COD checkout and example order journey; no transaction |
 | `/account`, `/account/orders` | Member entrance and example order history |
