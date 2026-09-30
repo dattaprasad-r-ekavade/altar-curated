@@ -1,23 +1,23 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Sprig } from "@/components/marks";
+import { PageIntro } from "@/components/page-intro";
 
-export const metadata: Metadata = { title: "Cart Preview" };
+export const metadata: Metadata = { title: "Cart" };
 
 export default function CartPage() {
   return (
-    <div className="page-shell interior-page narrow-page">
-      <div className="page-intro">
-        <p className="eyebrow">The cart / Design preview</p>
-        <h1>A little <em>space to keep.</em></h1>
-        <p>Your cart is empty. Ordering is not active while the products, delivery rules and COD flow are being prepared.</p>
+    <div className="shell narrow page">
+      <PageIntro kicker="The Cart" title="Nothing gathered" em="yet." lede="Ordering opens once products, delivery and cash on delivery are ready." />
+      <div className="empty">
+        <Sprig />
+        <p className="marginalia">Come back when the first offering is ready.</p>
+        <Link href="/shop" className="btn">Explore the Shop</Link>
       </div>
-      <div className="empty-state">
-        <span aria-hidden="true">♡</span>
-        <h2>Nothing here yet.</h2>
-        <p>Come back when the first offering is ready.</p>
-        <Link href="/shop" className="button button-light">Explore the shop <span aria-hidden="true">↗</span></Link>
+      <div className="section stack-sm">
+        <p className="kicker">See the journey ahead</p>
+        <Link href="/checkout" className="link">Preview checkout</Link>
       </div>
-      <div className="cart-preview-link"><p>See how the future cash-on-delivery journey will look.</p><Link href="/checkout" className="text-link">Preview checkout <span aria-hidden="true">↗</span></Link></div>
     </div>
   );
 }

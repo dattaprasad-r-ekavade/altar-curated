@@ -1,67 +1,152 @@
 import Link from "next/link";
-import { essays } from "@/lib/content";
+import { IndexList } from "@/components/index-list";
+import { JournalCover } from "@/components/journal-cover";
+import { AltarArch, Sprig } from "@/components/marks";
+import { apothecaryShelves, communityPrompts, featuredRitual, greenhouseShelves, library } from "@/lib/content";
 
 const rooms = [
-  { number: "01", title: "The Shop", text: "Objects chosen with intention.", href: "/shop" },
-  { number: "02", title: "The Greenhouse", text: "Ideas, rituals, and a place to gather.", href: "/greenhouse" },
-  { number: "03", title: "The Apothecary", text: "Objects, their stories, and their uses.", href: "/apothecary" },
-  { number: "04", title: "The Library", text: "Writing for the feeling heart.", href: "/read" },
+  { mark: "I", title: "The Greenhouse", where: "Where you discover.", href: "/greenhouse" },
+  { mark: "II", title: "The Library", where: "Where you read slowly.", href: "/read" },
+  { mark: "III", title: "The Conservatory", where: "Where you begin reflecting.", href: "/shop/reflections-in-bloom" },
+  { mark: "IV", title: "The Journal", where: "Where you stay connected.", href: "/notes" },
+  { mark: "V", title: "The Apothecary", where: "Where you ritualise.", href: "/apothecary" },
+  { mark: "VI", title: "The Studio", where: "Where the making happens.", href: "/studio", soon: true },
+  { mark: "VII", title: "The Observatory", where: "Where mysteries are kept.", href: "/observatory", soon: true },
+  { mark: "VIII", title: "The Shop", where: "Where you gather what you need.", href: "/shop" },
 ];
 
 export default function HomePage() {
   return (
     <>
-      <section className="minimal-hero page-shell">
-        <div className="minimal-seal" aria-hidden="true"><span>A</span><span>C</span></div>
-        <p className="minimal-kicker">Altar Curated · a world by Mehak Joshi</p>
-        <h1>The heart that keeps <em>on breaking.</em></h1>
-        <p className="minimal-hero-copy">An alchemical revision of the heart. A home for writing, reflection, ritual and objects with meaning.</p>
-        <Link className="minimal-pill" href="#explore">Explore Altar <span aria-hidden="true">↗</span></Link>
-        <span className="minimal-hero-bottom">A place to feel everything.</span>
-      </section>
-
-      <section id="explore" className="minimal-section page-shell">
-        <div className="minimal-section-heading"><span>01 / Explore the world</span><p>There is room for every way of arriving.</p></div>
-        <div className="minimal-room-list">
-          {rooms.map((room) => <Link className="minimal-room" href={room.href} key={room.number}>
-            <span>{room.number}</span><div><h2>{room.title}</h2><p>{room.text}</p></div><b aria-hidden="true">↗</b>
-          </Link>)}
-        </div>
-      </section>
-
-      <section className="minimal-feature">
-        <div className="page-shell minimal-feature-inner">
-          <div className="minimal-book" aria-label="Typographic preview of the Reflections in Bloom journal">
-            <span>ALTAR CURATED</span><strong>Reflections<br /><em>in Bloom</em></strong><small>a journal for becoming</small>
+      <section className="threshold" aria-labelledby="threshold-title">
+        <div className="threshold-inner">
+          <AltarArch />
+          <p className="kicker">Altar Curated · by Mehak Joshi</p>
+          <h1 id="threshold-title">A world you <em>can enter.</em></h1>
+          <p className="lede">A digital botanical estate for writing, ritual and objects with meaning.</p>
+          <div className="actions">
+            <Link className="btn" href="#estate">Explore Altar</Link>
+            <Link className="link" href="/greenhouse">Enter the Greenhouse</Link>
           </div>
-          <div className="minimal-feature-copy">
-            <p className="minimal-kicker">02 / The Conservatory</p>
-            <h2>Reflections <em>in Bloom</em></h2>
-            <p>The first offering. A journal imagined as a meeting place with the self, and a beginning for the world around it.</p>
-            <Link className="minimal-underline" href="/shop/reflections-in-bloom">Meet the journal <span aria-hidden="true">↗</span></Link>
+          <p className="marginalia">the heart that keeps on breaking…</p>
+        </div>
+      </section>
+
+      <section className="section shell center reveal" aria-label="Enter Altar">
+        <div className="stack center-items">
+          <p className="kicker">Enter Altar</p>
+          <p className="statement">Part publication, part apothecary, part personal library. A quiet place where words, rituals and objects find each other.</p>
+        </div>
+      </section>
+
+      <section id="estate" className="section shell reveal" aria-labelledby="estate-title">
+        <div className="head">
+          <div className="stack-sm">
+            <p className="kicker">Explore the world</p>
+            <h2 id="estate-title" className="h2">The estate</h2>
+          </div>
+          <p className="marginalia">Every room is a way in. Some are still being furnished.</p>
+        </div>
+        <div className="estate">
+          {rooms.slice(0, 4).map((room) => <Room key={room.mark} {...room} />)}
+          <Link href="/about" className="room room-altar">
+            <AltarArch />
+            <h3>The Altar</h3>
+            <p>You are here.</p>
+          </Link>
+          {rooms.slice(4).map((room) => <Room key={room.mark} {...room} />)}
+        </div>
+      </section>
+
+      <section className="lavender reveal" aria-labelledby="bloom-title">
+        <div className="shell split section">
+          <div className="cover-stage"><JournalCover size="lg" /></div>
+          <div className="stack">
+            <p className="kicker">The Conservatory · The first offering</p>
+            <h2 id="bloom-title" className="display">Reflections <em>in Bloom</em></h2>
+            <p className="lede">A journal imagined as a meeting place with the self, for all the versions of you still unfolding.</p>
+            <div className="actions">
+              <Link className="btn btn-ink" href="/shop/reflections-in-bloom">Meet the journal</Link>
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="minimal-section page-shell minimal-writing">
-        <div className="minimal-section-heading"><span>03 / The Library</span><p>Some things ask to be read slowly.</p></div>
-        <h2>Words to <em>return to.</em></h2>
-        <div className="minimal-room-list">
-          {essays.slice(0, 3).map((essay) => <Link className="minimal-room minimal-essay" href={`/read/${essay.slug}`} key={essay.slug}>
-            <span>{essay.motif}</span><div><h3>{essay.title}</h3><p>{essay.summary}</p></div><b aria-hidden="true">↗</b>
-          </Link>)}
+      <section className="section shell reveal" aria-labelledby="greenhouse-title">
+        <div className="split">
+          <div className="stack">
+            <p className="kicker">The Greenhouse · {featuredRitual.eyebrow.split(" / ")[0]}</p>
+            <h2 id="greenhouse-title" className="h2">{featuredRitual.title}</h2>
+            <p className="lede">{featuredRitual.summary}</p>
+            <ul className="shelves" aria-label="Greenhouse shelves">
+              {greenhouseShelves.map((shelf) => <li key={shelf}>{shelf}</li>)}
+            </ul>
+            <Link className="link" href={`/read/${featuredRitual.slug}`}>Read the ritual</Link>
+          </div>
+          <figure className="plate plate-sage">
+            <Sprig />
+            <figcaption><span>Pl. V</span><span>An evening ritual</span></figcaption>
+          </figure>
         </div>
-        <Link className="minimal-underline" href="/read">Enter the Library <span aria-hidden="true">↗</span></Link>
       </section>
 
-      <section className="minimal-invitation">
-        <div className="page-shell">
-          <p className="minimal-kicker">04 / The Greenhouse</p>
-          <h2>The slog is better <em>with company.</em></h2>
-          <p>Questions to live with. A place to read, reflect and eventually speak back.</p>
-          <Link className="minimal-pill" href="/greenhouse">Enter the Greenhouse <span aria-hidden="true">↗</span></Link>
+      <section className="section deep reveal" aria-labelledby="apothecary-title">
+        <div className="shell stack">
+          <div className="head">
+            <div className="stack-sm">
+              <p className="kicker">The Apothecary</p>
+              <h2 id="apothecary-title" className="h2">Objects that hold <em>a practice.</em></h2>
+            </div>
+            <p className="path" aria-label="Shop, learn, ritual"><span>Shop</span><span>Learn</span><span>Ritual</span></p>
+          </div>
+          <div className="columns">
+            {apothecaryShelves.map((shelf, index) => (
+              <div key={shelf.name}>
+                <span className="index-mark">{["I", "II", "III", "IV", "V"][index]}</span>
+                <h3>{shelf.name}</h3>
+                <p>{shelf.note}</p>
+              </div>
+            ))}
+          </div>
+          <Link className="link" href="/apothecary">Enter the Apothecary</Link>
+        </div>
+      </section>
+
+      <section className="section shell reveal" aria-labelledby="library-title">
+        <div className="stack">
+          <div className="head">
+            <div className="stack-sm">
+              <p className="kicker">The Library · Recent writing</p>
+              <h2 id="library-title" className="h2">Words to <em>return to.</em></h2>
+            </div>
+            <Link className="link" href="/read">All writing</Link>
+          </div>
+          <IndexList items={library.slice(0, 3).map((essay) => ({ mark: essay.motif, title: essay.title, text: essay.summary, href: `/read/${essay.slug}`, aside: "Read" }))} />
+        </div>
+      </section>
+
+      <section className="section shell rule reveal" aria-labelledby="prompt-title">
+        <div className="prompt">
+          <p className="kicker" id="prompt-title">A journal prompt to sit with</p>
+          <blockquote>{communityPrompts[2].title}</blockquote>
+          <Link className="link" href={`/community/${communityPrompts[2].slug}`}>Answer in community</Link>
         </div>
       </section>
     </>
+  );
+}
+
+function Room({ mark, title, where, href, soon }: { mark: string; title: string; where: string; href: string; soon?: boolean }) {
+  return (
+    <Link href={href} className="room">
+      <span className="room-mark">
+        <span>{mark}</span>
+        <span className={`room-status${soon ? " soon" : ""}`}>{soon ? "Unfurling" : "Open"}</span>
+      </span>
+      <div className="stack-sm">
+        <h3>{title}</h3>
+        <p>{where}</p>
+      </div>
+    </Link>
   );
 }

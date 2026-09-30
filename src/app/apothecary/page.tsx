@@ -1,13 +1,66 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Sprig } from "@/components/marks";
+import { PageIntro } from "@/components/page-intro";
+import { apothecaryShelves, featuredRitual } from "@/lib/content";
 
-export const metadata: Metadata = { title: "The Apothecary" };
+export const metadata: Metadata = {
+  title: "The Apothecary",
+  description: "A curated ritual and sensory world: candles, crystals, ritual objects, botanical goods and sensory objects.",
+};
+
+const steps = [
+  { name: "Shop", text: "The object: its material, its maker, how to care for it." },
+  { name: "Learn", text: "Its meaning: why it belongs in the collection." },
+  { name: "Ritual", text: "Its practice: a gentle way to bring it into your day." },
+];
+
 export default function ApothecaryPage() {
-  return <div className="page-shell interior-page apothecary-page">
-    <div className="page-intro"><p className="eyebrow">The apothecary / Objects and their stories</p><h1>A practice <em>you can hold.</em></h1><p>Objects find meaning in the ways we live with them. This space will pair each carefully chosen item with context, care and a small ritual.</p></div>
-    <div className="apothecary-display"><div className="apothecary-object" aria-hidden="true"><span>✧</span></div><div><p className="eyebrow">Shop → Learn → Ritual</p><h2>More than <em>a shelf.</em></h2><p>The finished apothecary will connect physical pieces to writing and reflective practices, without making promises about outcomes.</p><Link href="/shop" className="button button-light">Explore the shop ↗</Link></div></div>
-    <div className="section-heading coming-heading"><div><p className="eyebrow">How this world unfolds</p><h2>An object. A story. <em>A way in.</em></h2></div></div>
-    <div className="apothecary-steps">{["The object", "The meaning", "The practice"].map((name, i) => <div key={name}><span>0{i+1}</span><h3>{name}</h3><p>{["Material, origin and care.","Why it belongs in this collection.","A gentle invitation to use it."][i]}</p></div>)}</div>
-    <p className="source-note">Categories and products remain placeholders until Mehak curates the launch catalogue.</p>
-  </div>;
+  return (
+    <div className="shell page">
+      <PageIntro kicker="The Apothecary · Where you ritualise" title="A practice" em="you can hold." lede="Not a shelf of things. Each object arrives with its story and a small ritual, so you know how and why it fits your practice." />
+
+      <div className="columns columns-3">
+        {steps.map((step, index) => (
+          <div key={step.name}>
+            <span className="index-mark">{["I", "II", "III"][index]}</span>
+            <h3>{step.name}</h3>
+            <p>{step.text}</p>
+          </div>
+        ))}
+      </div>
+
+      <section className="section reveal" aria-labelledby="shelves-title">
+        <div className="head">
+          <div className="stack-sm">
+            <p className="kicker">The shelves</p>
+            <h2 id="shelves-title" className="h2">Being <em>curated.</em></h2>
+          </div>
+          <p className="marginalia">Objects appear here as Mehak chooses them.</p>
+        </div>
+        <div className="columns">
+          {apothecaryShelves.map((shelf) => (
+            <div key={shelf.name}>
+              <span className="room-status soon kicker">Unfurling</span>
+              <h3>{shelf.name}</h3>
+              <p>{shelf.note}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="split reveal" aria-labelledby="ritual-title">
+        <div className="stack">
+          <p className="kicker">From the Greenhouse</p>
+          <h2 id="ritual-title" className="h2">{featuredRitual.title}</h2>
+          <p className="lede">A candle, a journal and a crystal, and a way to use them together.</p>
+          <Link href={`/read/${featuredRitual.slug}`} className="link">Read the ritual</Link>
+        </div>
+        <figure className="plate plate-brown">
+          <Sprig />
+          <figcaption><span>Pl. II</span><span>Candle, page, stone</span></figcaption>
+        </figure>
+      </section>
+    </div>
+  );
 }

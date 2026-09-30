@@ -1,37 +1,33 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { PageIntro } from "@/components/page-intro";
 import { notes } from "@/lib/content";
 
-export const metadata: Metadata = { title: "Journal Notes", description: "Small thoughts from the Altar Curated world." };
+export const metadata: Metadata = { title: "The Journal", description: "Reflections, small rituals and journal prompts from Altar Curated." };
 
-export default function NotesPage() {
+export default function JournalPage() {
   return (
-    <div className="page-shell interior-page notes-page">
-      <div className="page-intro">
-        <p className="eyebrow">The Journal / Things before they become essays</p>
-        <h1>A few things <em>left open.</em></h1>
-        <p>Small observations, questions and fragments. A quieter shelf beside the longer writing.</p>
-      </div>
-      <div className="editorial-tabs" aria-label="Publication sections">
-        <Link href="/read">The Library</Link>
-        <span aria-current="page">Journal notes</span>
-        <Link href="/about">About the publication</Link>
-      </div>
-      <div className="notes-grid">
+    <div className="shell page">
+      <PageIntro kicker="The Journal · Where you stay connected" title="A few things" em="left open." lede="Reflections, small rituals and journal prompts. A quieter shelf beside the Library." />
+      <ul className="index">
         {notes.map((note) => (
-          <article className="note-card" key={note.number}>
-            <div className="note-card-top"><span>{note.theme}</span><span>{note.number} / 03</span></div>
-            <p>{note.text}</p>
-            <span className="note-mark" aria-hidden="true">✧</span>
-          </article>
+          <li key={note.number}>
+            <div className="index-row">
+              <span className="index-mark">{note.number}</span>
+              <span className="index-body">
+                <span className="kicker">{note.theme}</span>
+                <span className="statement">{note.text}</span>
+              </span>
+              <span className="index-aside" />
+            </div>
+          </li>
         ))}
-      </div>
-      <p className="source-note">These are prototype notes written for the layout. Mehak&apos;s approved notes will replace them.</p>
-      <div className="page-outro">
-        <p className="eyebrow">A longer place to stay</p>
-        <h2>When a thought needs <em>more room.</em></h2>
-        <Link href="/read" className="text-link">Visit the essay archive <span aria-hidden="true">↗</span></Link>
-      </div>
+      </ul>
+      <p className="preview-note pad-top"><span>Preview</span> Layout notes; Mehak&apos;s approved entries will replace them.</p>
+      <section className="section stack-sm" aria-label="The Library">
+        <p className="kicker">When a thought needs more room</p>
+        <Link href="/read" className="link">Enter the Library</Link>
+      </section>
     </div>
   );
 }
