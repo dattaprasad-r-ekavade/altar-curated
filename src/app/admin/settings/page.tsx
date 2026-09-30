@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
+import { IndexList } from "@/components/index-list";
+import { PageIntro } from "@/components/page-intro";
 
-export const metadata: Metadata = { title: "Studio — Settings" };
+export const metadata: Metadata = { title: "Owner Desk — Settings" };
 
 const checklist = [
   ["Brand", "Approved logo, fonts, photography and site copy"],
@@ -11,9 +13,24 @@ const checklist = [
 ];
 
 export default function AdminSettingsPage() {
-  return <div className="admin-subpage">
-    <div className="admin-subheading"><div><p className="eyebrow">Studio / Site settings</p><h1>Before the doors <em>open.</em></h1><p>A quiet checklist for the pieces that make the world ready.</p></div></div>
-    <div className="settings-checklist">{checklist.map(([title, detail], i) => <div key={title}><span>0{i+1}</span><strong>{title}</strong><p>{detail}</p><small>Awaiting approval</small></div>)}</div>
-    <div className="admin-form-preview"><p className="eyebrow">Site details / Layout preview</p><h2>Keep the essentials close.</h2><div className="admin-form-grid"><label>Publication link<input value="speckofrot.substack.com" readOnly /></label><label>Order contact<input placeholder="To be confirmed" disabled /></label><label>Shipping origin<input placeholder="To be confirmed" disabled /></label><label>COD availability<input value="Not enabled" readOnly /></label></div><div className="admin-form-bottom"><span>Settings cannot be edited until the backend and owner authentication are added.</span><button className="button button-disabled" type="button" disabled>Save settings</button></div></div>
-  </div>;
+  return (
+    <>
+      <PageIntro kicker="Owner desk · Settings" title="Before the doors" em="open." lede="A quiet checklist for the pieces that make the world ready." />
+      <IndexList items={checklist.map(([title, detail], index) => ({ mark: ["I", "II", "III", "IV", "V"][index], title, text: detail, aside: "Awaiting approval" }))} />
+      <form className="panel" aria-label="Site details preview">
+        <p className="kicker">Site details · Layout preview</p>
+        <h2>Keep the essentials close.</h2>
+        <div className="form-grid">
+          <label className="field">Publication link<input value="speckofrot.substack.com" readOnly /></label>
+          <label className="field">Order contact<input placeholder="To be confirmed" disabled /></label>
+          <label className="field">Shipping origin<input placeholder="To be confirmed" disabled /></label>
+          <label className="field">COD availability<input value="Not enabled" readOnly /></label>
+        </div>
+        <div className="form-foot">
+          <p>Settings cannot be edited until the backend and owner authentication are added.</p>
+          <button className="btn" type="button" disabled>Save settings</button>
+        </div>
+      </form>
+    </>
+  );
 }

@@ -1,60 +1,90 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { IndexList } from "@/components/index-list";
+import { JournalCover } from "@/components/journal-cover";
+import { Sprig } from "@/components/marks";
+import { PrototypeBanner } from "@/components/prototype-banner";
+import { featuredRitual, notes } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Reflections in Bloom",
-  description: "Meet the first Altar Curated journal.",
+  description: "Reflections in Bloom, the first Altar Curated journal. Where you begin reflecting.",
 };
 
-export default function JournalPage() {
+const inside = [
+  { mark: "I", title: "What it is", text: "A guided journal for reflection, tenderness and becoming." },
+  { mark: "II", title: "Why it exists", text: "Some things need a page to land on before they can be understood." },
+  { mark: "III", title: "How to use it", text: "At your own pace: one page in the morning, one at night, or none for a while." },
+  { mark: "IV", title: "Who it is for", text: "Anyone in the middle of something, with no finished version of themselves required." },
+];
+
+const details = [
+  ["Format", "To be confirmed"],
+  ["Pages", "To be confirmed"],
+  ["Paper", "To be confirmed"],
+  ["Delivery", "Across India · Cash on delivery"],
+];
+
+export default function ReflectionsInBloomPage() {
   return (
-    <div className="journal-page">
-      <section className="journal-product-hero page-shell">
-        <div className="journal-product-art">
-          <div className="journal-cover journal-cover-large">
-            <span>ALTAR CURATED</span>
-            <strong>Reflections<br /><em>in Bloom</em></strong>
-            <small>a journal for becoming</small>
+    <>
+      <section className="shell page leaf-sheet split split-top">
+        <div className="lavender cover-stage"><JournalCover size="lg" /></div>
+        <div className="stack">
+          <Link className="back" href="/shop">← The Shop</Link>
+          <p className="kicker">The Conservatory · Journals</p>
+          <h1 className="display">Reflections <em>in Bloom</em></h1>
+          <p className="lede">A place to return to yourself, one page at a time.</p>
+          <p className="hand hand-note">begin on any page.</p>
+          <dl className="facts">
+            {details.map(([term, value]) => <div key={term}><dt>{term}</dt><dd>{value}</dd></div>)}
+          </dl>
+          <button className="btn" type="button" disabled>Add to cart · Opens at launch</button>
+          <PrototypeBanner>Photography, spreads, price and specifications will be added once confirmed.</PrototypeBanner>
+        </div>
+      </section>
+
+      <section className="dark reveal" aria-labelledby="philosophy">
+        <div className="shell narrow section center stack center-items">
+          <Sprig />
+          <p className="kicker">Its philosophy</p>
+          <h2 id="philosophy" className="statement">Reflection is not a promise of transformation. It is a way of <em>keeping company with yourself.</em></h2>
+        </div>
+      </section>
+
+      <section className="shell section reveal" aria-labelledby="inside">
+        <div className="head">
+          <div className="stack-sm">
+            <p className="kicker">What is inside</p>
+            <h2 id="inside" className="h2">Made to be <em>lived with.</em></h2>
           </div>
         </div>
-        <div className="journal-product-copy">
-          <Link className="back-link" href="/shop">← Back to the shop</Link>
-          <p className="eyebrow">The first offering / A journal</p>
-          <h1>Reflections <em>in Bloom</em></h1>
-          <p className="article-deck">A place to return to yourself, one page at a time.</p>
-          <div className="product-detail-rule" />
-          <p>This page is ready for Mehak’s story, journal spreads, materials, dimensions, guidance and final photography.</p>
-          <div className="availability-box">
-            <span className="availability-dot" />
-            <span>Preview only · Pricing and availability to follow</span>
+        <IndexList items={inside} />
+      </section>
+
+      <section className="shell reveal" aria-label="Selected spreads">
+        <div className="split">
+          <figure className="plate"><Sprig /><figcaption><span>Spread I</span><span>Morning pages</span></figcaption></figure>
+          <figure className="plate plate-lavender"><Sprig /><figcaption><span>Spread II</span><span>Evening pages</span></figcaption></figure>
+        </div>
+      </section>
+
+      <section className="shell section reveal" aria-labelledby="begin">
+        <div className="split split-top">
+          <div className="stack">
+            <p className="kicker">A journal prompt to begin</p>
+            <h2 id="begin" className="h2"><em>{notes[2].text}</em></h2>
           </div>
-          <button className="button button-disabled" type="button" disabled>Ordering opens after launch details are confirmed</button>
-          <p className="product-fineprint">COD checkout and delivery details are not active in this design preview.</p>
+          <div className="stack">
+            <p className="kicker">Related in the estate</p>
+            <IndexList compact items={[
+              { mark: "Ritual", title: featuredRitual.title, href: `/read/${featuredRitual.slug}` },
+              { mark: "Room", title: "The Apothecary", href: "/apothecary" },
+              { mark: "Read", title: "The Library", href: "/read" },
+            ]} />
+          </div>
         </div>
       </section>
-      <section className="journal-story">
-        <div className="page-shell journal-story-inner">
-          <p className="eyebrow">The story behind the object</p>
-          <h2>Some things need <em>a page to land on.</em></h2>
-          <p>The final editorial story will connect the journal to Altar’s writing and practices without turning reflection into a promise of transformation.</p>
-        </div>
-      </section>
-      <section className="section page-shell journal-details">
-        <div>
-          <p className="eyebrow">Inside / To be revealed</p>
-          <h2>Made to be <em>lived with.</em></h2>
-        </div>
-        <div className="detail-list">
-          <div><span>01</span><strong>The philosophy</strong><p>Why this journal exists and the thought behind it.</p></div>
-          <div><span>02</span><strong>The pages</strong><p>Selected spreads and a clear look at what is inside.</p></div>
-          <div><span>03</span><strong>The practice</strong><p>Ways to use the journal at your own pace.</p></div>
-        </div>
-      </section>
-      <section className="page-shell journal-end">
-        <span aria-hidden="true">✦</span>
-        <h2>Begin with the writing.</h2>
-        <Link href="/read" className="text-link">Explore the archive <span aria-hidden="true">↗</span></Link>
-      </section>
-    </div>
+    </>
   );
 }

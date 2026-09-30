@@ -1,35 +1,33 @@
 import type { Metadata } from "next";
-import { EssayCard } from "@/components/essay-card";
+import { LeafRow } from "@/components/leaf-row";
+import { PageIntro } from "@/components/page-intro";
 import { essays } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "The Library",
-  description: "An editorial archive of devotion, longing and becoming.",
+  description: "Writing, essays and the archive of Altar Curated.",
 };
 
-export default function ReadPage() {
+export default function LibraryPage() {
   return (
-    <div className="page-shell interior-page">
-      <div className="page-intro">
-        <p className="eyebrow">The Library / An ongoing archive</p>
-        <h1>Words for the <em>feeling heart.</em></h1>
-        <p>Essays, reflections and notes from the unfinished work of being alive.</p>
-      </div>
-      <div className="archive-toolbar">
-        <span>Selected writing / The Journal</span>
-        <span>01 — 04</span>
-      </div>
-      <div className="archive-grid">
-        {essays.map((essay) => <EssayCard key={essay.slug} essay={essay} />)}
-      </div>
-      <div className="archive-note">
-        <span aria-hidden="true">A C</span>
-        <div>
-          <h2>The original publication</h2>
-          <p>The complete writing currently lives on Mehak’s Substack. These are layout previews until the text and republication choices are approved.</p>
-          <a className="text-link" href="https://speckofrot.substack.com/" target="_blank" rel="noreferrer">Read on Substack <span aria-hidden="true">↗</span></a>
-        </div>
-      </div>
+    <div className="shell page leaf-sheet">
+      <PageIntro kicker="The Library · Writing, essays, archive" title="Words for the" em="feeling heart." lede="Essays and rituals from the unfinished work of being alive." note="pages kept, in no particular order" />
+      <p className="kicker leaf-kicker">From the shelves</p>
+      <LeafRow
+        label="Library"
+        items={essays.map((essay) => ({
+          mark: essay.motif,
+          title: essay.title,
+          text: `${essay.eyebrow} — ${essay.summary}`,
+          href: `/read/${essay.slug}`,
+          aside: "Read",
+        }))}
+      />
+      <section className="section stack-sm" aria-label="Original publication">
+        <p className="kicker">The original publication</p>
+        <p className="lede">The complete writing currently lives on Mehak&apos;s Substack. These pages are previews until republication choices are approved.</p>
+        <a className="link" href="https://speckofrot.substack.com/" target="_blank" rel="noreferrer">Read on Substack</a>
+      </section>
     </div>
   );
 }

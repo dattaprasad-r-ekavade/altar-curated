@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { communityPrompts } from "@/lib/content";
+import { Sprig } from "@/components/marks";
 import { PrototypeBanner } from "@/components/prototype-banner";
+import { communityPrompts } from "@/lib/content";
 
 export function generateStaticParams() {
   return communityPrompts.map(({ slug }) => ({ slug }));
@@ -20,31 +21,25 @@ export default async function ThreadPage({ params }: { params: Promise<{ slug: s
   if (!prompt) notFound();
 
   return (
-    <div className="page-shell interior-page thread-page">
-      <Link href="/community" className="back-link">← Back to the gathering</Link>
-      <div className="thread-heading">
-        <p className="eyebrow">{prompt.label} / An open question</p>
-        <h1>{prompt.title}</h1>
-        <p>{prompt.description}</p>
-      </div>
-      <div className="thread-column">
-        <div className="thread-introduction">
-          <div className="thread-avatar" aria-hidden="true">AC</div>
-          <div>
-            <span className="thread-byline">A prompt from Altar Curated · preview</span>
-            <p>There is no right way into this conversation. Begin with a memory, a question, or a sentence you have been carrying.</p>
+    <div className="shell page leaf-sheet">
+      <Link href="/community" className="back">← Community</Link>
+      <header className="article-head">
+        <p className="kicker">{prompt.label} · A journal prompt</p>
+        <h1><em>{prompt.title}</em></h1>
+        <p className="lede">{prompt.description}</p>
+        <Sprig />
+      </header>
+      <div className="prose stack">
+        <p>There is no right way into this conversation. Begin with a memory, a question, or a sentence you have been carrying.</p>
+        <div className="rule" />
+        <p className="marginalia">Replies from members will gather here.</p>
+        <form className="form" aria-label="Add your reflection">
+          <label className="field">Your reflection<textarea rows={4} placeholder="A thought, however unfinished…" disabled /></label>
+          <div className="form-foot">
+            <PrototypeBanner>Discussion is not connected yet. Members will reply after sign-in.</PrototypeBanner>
+            <button type="button" className="btn" disabled>Share</button>
           </div>
-        </div>
-        <div className="thread-replies">
-          <span className="eyebrow">The conversation / To come</span>
-          <p>Member replies will live here once accounts and moderation are connected.</p>
-        </div>
-        <PrototypeBanner>Discussion is not connected yet. This page demonstrates the member reading and reply layout.</PrototypeBanner>
-        <div className="reply-preview">
-          <label htmlFor="reply">Add your reflection</label>
-          <textarea id="reply" rows={5} placeholder="A thought, however unfinished…" disabled />
-          <div><span>Members will be able to reply after sign-in.</span><button type="button" className="button button-disabled" disabled>Post reflection</button></div>
-        </div>
+        </form>
       </div>
     </div>
   );

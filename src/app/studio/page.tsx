@@ -1,15 +1,18 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { IndexList } from "@/components/index-list";
+import { PageIntro } from "@/components/page-intro";
 
-export const metadata: Metadata = { title: "The Studio" };
+export const metadata: Metadata = { title: "The Studio", description: "Creative process and behind-the-scenes notes from Altar Curated." };
 
 export default function StudioPage() {
-  return <div className="page-shell interior-page studio-page">
-    <div className="page-intro"><p className="eyebrow">The Studio / In the making</p><h1>A little room <em>for process.</em></h1><p>A future home for Mehak&apos;s creative practice, behind-the-scenes notes and things still finding their shape.</p></div>
-    <div className="minimal-room-list">
-      <Link href="/about" className="minimal-room"><span>01</span><div><h2>About Altar</h2><p>The thinking and feeling behind this world.</p></div><b aria-hidden="true">↗</b></Link>
-      <Link href="/read" className="minimal-room"><span>02</span><div><h2>The Library</h2><p>Start with the writing.</p></div><b aria-hidden="true">↗</b></Link>
+  return (
+    <div className="shell page leaf-sheet">
+      <PageIntro kicker="The Studio · Where the making happens" title="A little room" em="for process." lede="Creative practice, videos and behind-the-scenes notes, as they find their shape." note="sketches, still smudged" />
+      <IndexList items={[
+        { mark: "I", title: "Behind the journal", text: "How Reflections in Bloom came to be.", aside: "Soon" },
+        { mark: "II", title: "Films", text: "Process videos and conversations.", aside: "Soon" },
+        { mark: "III", title: "About Altar", text: "The thinking and feeling behind this world.", href: "/about" },
+      ]} />
     </div>
-    <p className="source-note">The final Studio will grow with approved creative work and materials.</p>
-  </div>;
+  );
 }
